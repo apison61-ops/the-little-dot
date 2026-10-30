@@ -1,24 +1,54 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { ArrowUpRight, CheckCircle2, ChevronDown, FileText, Calculator, BriefcaseBusiness, ChartNoAxesCombined, Menu, X, MessageCircle, Play, Camera, ShieldCheck, Clock3, MapPin, Mail } from "lucide-react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
+export const Route = createFileRoute("/")({ component: Home });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const WHATSAPP = "244941341422";
+const messageLink = (message: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [faqOpen, setFaqOpen] = useState<number | null>(0);
+  const services = [
+    { icon: FileText, title: "Contabilidade", text: "Organização e acompanhamento contabilístico para decisões mais seguras." },
+    { icon: Calculator, title: "Fiscalidade", text: "Apoio no cumprimento das obrigações fiscais e na preparação da documentação." },
+    { icon: BriefcaseBusiness, title: "Consultoria empresarial", text: "Orientação prática para estruturar processos e fortalecer o seu negócio." },
+    { icon: ChartNoAxesCombined, title: "Gestão e planeamento", text: "Mais clareza sobre números, prioridades e próximos passos da sua empresa." },
+  ];
+  const faqs = [
+    ["Que serviços posso solicitar?", "Prestamos apoio em contabilidade, fiscalidade e consultoria empresarial. Entre em contacto para explicar a sua necessidade."],
+    ["A consulta pode ser feita online?", "Sim. Pode escolher uma consulta online ou presencial, conforme a sua preferência."],
+    ["Como posso marcar uma consulta?", "Envie-nos uma mensagem pelo WhatsApp. A nossa equipa ajudará a confirmar o serviço e a disponibilidade."],
+  ];
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main>
+      <div className="topline"><div className="wrap topline-inner"><span><MapPin size={14}/> Angola · Consultoria empresarial</span><a href={messageLink("Olá, SM Consultoria. Gostaria de obter informações.")} target="_blank" rel="noreferrer"><MessageCircle size={14}/> Fale connosco <ArrowUpRight size={14}/></a></div></div>
+      <header className="header"><div className="wrap nav">
+        <a className="brand" href="#inicio" aria-label="SM Consultoria, início"><span className="brand-mark">SM<span>.</span></span><span className="brand-text">CONSULTORIA<small>BUSINESS CONSULTING</small></span></a>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu">{menuOpen ? <X/> : <Menu/>}</button>
+        <nav className={menuOpen ? "nav-links open" : "nav-links"}>{[["Início","#inicio"],["Sobre nós","#sobre"],["Serviços","#servicos"],["Conteúdos","#conteudos"],["Consultas","#consultas"]].map(([label,href])=><a key={label} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}<a className="nav-cta" href={messageLink("Olá, SM Consultoria. Quero marcar uma consulta.")} target="_blank" rel="noreferrer">Marcar consulta <ArrowUpRight size={16}/></a></nav>
+      </div></header>
+
+      <section className="hero" id="inicio"><div className="hero-grid"></div><div className="wrap hero-layout">
+        <div className="hero-copy"><div className="eyebrow"><span></span> CLAREZA PARA DECIDIR MELHOR</div><h1>O seu negócio merece <em>decisões inteligentes.</em></h1><p className="hero-lead">Apoiamos empresas e empreendedores com soluções de contabilidade, fiscalidade e consultoria para crescer com organização e confiança.</p><div className="hero-actions"><a className="btn btn-primary" href={messageLink("Olá, SM Consultoria. Gostaria de conhecer os vossos serviços.")} target="_blank" rel="noreferrer">Fale com um consultor <ArrowUpRight size={18}/></a><a className="btn btn-quiet" href="#servicos">Explorar serviços <span>↓</span></a></div><div className="trust-row"><div className="trust-icon"><ShieldCheck size={20}/></div><div><strong>Orientação profissional</strong><small>Informação clara. Acompanhamento próximo.</small></div></div></div>
+        <div className="hero-visual"><div className="visual-frame"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=85" alt="Profissionais a analisar documentos numa reunião de trabalho"/><div className="visual-overlay"></div><div className="visual-caption"><span className="caption-icon"><ChartNoAxesCombined size={20}/></span><div><strong>Mais controlo. Mais visão.</strong><small>Estratégia que começa nos detalhes.</small></div></div><div className="floating-note"><span className="note-check"><CheckCircle2 size={18}/></span><div><strong>Em boas mãos</strong><small>Apoio para o seu negócio</small></div></div></div><div className="visual-stamp">SM<br/><span>CONSULTORIA</span></div></div>
+      </div><div className="hero-bottom"><div className="wrap hero-bottom-inner"><span>CONTABILIDADE</span><i></i><span>FISCALIDADE</span><i></i><span>CONSULTORIA</span><i></i><span>GESTÃO EMPRESARIAL</span></div></div></section>
+
+      <section className="intro section" id="sobre"><div className="wrap intro-grid"><div><div className="eyebrow blue"><span></span> SOBRE A SM CONSULTORIA</div><h2>Transformamos complexidade em <em>clareza.</em></h2></div><div className="intro-text"><p>Gerir uma empresa exige tempo, organização e decisões fundamentadas. A SM Consultoria ajuda a tornar os processos mais claros, para que possa concentrar-se no que realmente importa: o desenvolvimento do seu negócio.</p><a className="text-link" href={messageLink("Olá! Gostaria de saber mais sobre a SM Consultoria.")} target="_blank" rel="noreferrer">Conheça a nossa abordagem <ArrowUpRight size={17}/></a></div></div></section>
+
+      <section className="services section" id="servicos"><div className="wrap"><div className="section-heading"><div><div className="eyebrow blue"><span></span> O QUE FAZEMOS</div><h2>Soluções para cada etapa<br/>do seu <em>negócio.</em></h2></div><p>Serviços pensados para trazer organização, segurança e uma visão mais estratégica à sua actividade.</p></div><div className="service-grid">{services.map((s,i)=><article className="service-card" key={s.title}><div className="service-top"><span className="service-icon"><s.icon size={23}/></span><span className="service-number">0{i+1}</span></div><h3>{s.title}</h3><p>{s.text}</p><a aria-label={`Saber mais sobre ${s.title}`} href={messageLink(`Olá, SM Consultoria. Gostaria de saber mais sobre ${s.title.toLowerCase()}.`)} target="_blank" rel="noreferrer" className="card-arrow"><ArrowUpRight size={19}/></a></article>)}</div></div></section>
+
+      <section className="feature" id="conteudos"><div className="wrap feature-layout"><div className="feature-copy"><div className="eyebrow light"><span></span> CONHECIMENTO QUE AJUDA</div><h2>Informação útil.<br/><em>Decisões melhores.</em></h2><p>Partilhamos conteúdos, orientações e momentos da nossa actividade para ajudar a compreender melhor o mundo da gestão, contabilidade e fiscalidade.</p><a className="btn btn-white" href={messageLink("Olá, SM Consultoria. Gostaria de acompanhar os vossos conteúdos e novidades.")} target="_blank" rel="noreferrer">Receber informações <ArrowUpRight size={18}/></a></div><div className="content-cards"><article className="content-card"><div className="content-image image-one"><FileText size={34}/><span>GUIAS &amp; DICAS</span></div><div className="content-card-body"><span className="content-label">ARTIGOS E ORIENTAÇÕES</span><h3>Compreenda melhor as suas obrigações.</h3><p>Conteúdos educativos para acompanhar a actividade da sua empresa.</p></div></article><article className="content-card"><div className="content-image image-two"><Camera size={34}/><span>O NOSSO DIA A DIA</span></div><div className="content-card-body"><span className="content-label">GALERIA</span><h3>Conheça a nossa actividade.</h3><p>Espaço reservado para fotos e vídeos da equipa e dos nossos trabalhos.</p></div></article></div></div></section>
+
+      <section className="consultations section" id="consultas"><div className="wrap"><div className="section-heading"><div><div className="eyebrow blue"><span></span> CONSULTORIA PERSONALIZADA</div><h2>Uma conversa pode mudar<br/>a forma de <em>avançar.</em></h2></div><p>Escolha o formato mais conveniente e converse connosco sobre os desafios do seu negócio.</p></div><div className="pricing-grid"><article className="price-card"><div className="price-icon"><MessageCircle size={22}/></div><span className="price-label">À DISTÂNCIA</span><h3>Consulta online</h3><p>Orientação profissional onde quer que esteja.</p><div className="price"><strong>25.000</strong><span>Kz <small>/ consulta</small></span></div><a className="btn btn-outline" href={messageLink("Olá, SM Consultoria. Quero marcar uma consulta online por 25.000 Kz.")} target="_blank" rel="noreferrer">Escolher consulta <ArrowUpRight size={17}/></a><div className="price-foot"><Clock3 size={15}/> Agendamento por WhatsApp</div></article><article className="price-card price-featured"><div className="popular-tag">ATENDIMENTO PRESENCIAL</div><div className="price-icon"><BriefcaseBusiness size={22}/></div><span className="price-label">PRESENCIAL</span><h3>Consulta presencial</h3><p>Um encontro directo para analisar as suas necessidades.</p><div className="price"><strong>35.000</strong><span>Kz <small>/ consulta</small></span></div><a className="btn btn-primary" href={messageLink("Olá, SM Consultoria. Quero marcar uma consulta presencial por 35.000 Kz.")} target="_blank" rel="noreferrer">Marcar consulta <ArrowUpRight size={17}/></a><div className="price-foot"><MapPin size={15}/> Local a confirmar no agendamento</div></article></div><p className="price-note">O agendamento e os detalhes do atendimento são confirmados directamente com a nossa equipa.</p></div></section>
+
+      <section className="faq-section"><div className="wrap faq-layout"><div><div className="eyebrow blue"><span></span> DÚVIDAS FREQUENTES</div><h2>Tem alguma<br/><em>pergunta?</em></h2><p>Estamos disponíveis para esclarecer as suas dúvidas e ajudar a encontrar o serviço certo.</p><a className="text-link" href={messageLink("Olá, SM Consultoria. Tenho uma dúvida e gostaria de ajuda.")} target="_blank" rel="noreferrer">Fale connosco <ArrowUpRight size={17}/></a></div><div className="faq-list">{faqs.map(([q,a],i)=><article className={faqOpen===i?"faq-item active":"faq-item"} key={q}><button onClick={()=>setFaqOpen(faqOpen===i?null:i)} aria-expanded={faqOpen===i}><span>{q}</span><ChevronDown size={19}/></button>{faqOpen===i&&<p>{a}</p>}</article>)}</div></div></section>
+
+      <section className="closing"><div className="wrap closing-inner"><div><div className="eyebrow light"><span></span> VAMOS CONVERSAR?</div><h2>O próximo passo do seu negócio<br/>começa com uma <em>boa decisão.</em></h2></div><a className="btn btn-white" href={messageLink("Olá, SM Consultoria. Quero conversar com um consultor.")} target="_blank" rel="noreferrer">Contactar a equipa <ArrowUpRight size={18}/></a></div></section>
+
+      <footer className="footer"><div className="wrap footer-main"><a className="brand footer-brand" href="#inicio"><span className="brand-mark">SM<span>.</span></span><span className="brand-text">CONSULTORIA<small>BUSINESS CONSULTING</small></span></a><p>Clareza, organização e orientação para o seu negócio.</p><a className="footer-contact" href={messageLink("Olá, SM Consultoria. Gostaria de entrar em contacto.")} target="_blank" rel="noreferrer"><MessageCircle size={17}/> +244 941 341 422 <ArrowUpRight size={15}/></a></div><div className="wrap footer-bottom"><span>© {new Date().getFullYear()} SM Consultoria. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+    </main>
   );
 }
