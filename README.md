@@ -1,15 +1,25 @@
-# Repositório — SM Consultoria | Business Consulting
+# SM Consultoria | Business Consulting
 
-O website institucional da **SM Consultoria | Business Consulting** está na pasta [`teste-1/`](./teste-1/).
+Website institucional da SM Consultoria, desenvolvido com React, TanStack Start e Vite.
 
-- **Abrir a página principal:** [`teste-1/index.html`](./teste-1/index.html)
-- **Política de privacidade:** [`teste-1/privacy.html`](./teste-1/privacy.html)
-- **Instruções do website:** [`teste-1/README.md`](./teste-1/README.md)
+## Conteúdo
+- Apresentação institucional
+- Serviços de contabilidade, fiscalidade e consultoria empresarial
+- Secção de conteúdos e galeria
+- Consultas online (25.000 Kz) e presenciais (35.000 Kz)
+- Contacto por WhatsApp: +244 941 341 422
+- Layout responsivo para telemóveis, tablets e computadores
 
-A página `index.html` na raiz encaminha para o website dentro de `teste-1/`.
+## Desenvolvimento
+```bash
+bun install
+bun run dev
+```
 
-## Publicação
-O repositório é o código-fonte do projeto. Para ter um endereço público, é necessário ativar e configurar o GitHub Pages ou outro serviço de alojamento estático. A publicação online ainda não é confirmada por este commit.
+## Verificação
+```bash
+bun run build
+bun run lint
+```
 
-## Projeto original
-SM Consultoria | Business Consulting — contabilidade, fiscalidade, organização documental e consultoria empresarial em Angola.
+O projeto utiliza o fluxo de desenvolvimento configurado no repositório. As imagens ilustrativas e as áreas de conteúdos devem ser substituídas por fotografias, vídeos e materiais oficiais da SM Consultoria antes da publicação final.
