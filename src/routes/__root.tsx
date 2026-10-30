@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "SM Consultoria | Business Consulting" },
+      { name: "description", content: "Contabilidade, fiscalidade e consultoria empresarial em Angola. Orientação profissional para decisões mais seguras." },
+      { name: "author", content: "SM Consultoria" },
+      { property: "og:title", content: "SM Consultoria | Business Consulting" },
+      { property: "og:description", content: "Contabilidade, fiscalidade e consultoria empresarial em Angola." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@SMConsultoria" },
     ],
     links: [
       {
@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-AO">
       <head>
         <HeadContent />
       </head>
