@@ -1,24 +1,15 @@
-# The Little Dot
+# Repositório — SM Consultoria | Business Consulting
 
-.
+O website institucional da **SM Consultoria | Business Consulting** está na pasta [`teste-1/`](./teste-1/).
 
-This project was built with [Lovable](https://lovable.dev).
+- **Abrir a página principal:** [`teste-1/index.html`](./teste-1/index.html)
+- **Política de privacidade:** [`teste-1/privacy.html`](./teste-1/privacy.html)
+- **Instruções do website:** [`teste-1/README.md`](./teste-1/README.md)
 
-## Build with Lovable
+A página `index.html` na raiz encaminha para o website dentro de `teste-1/`.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/bcabf317-1fa2-4471-8862-de0e90b37dbd).
+## Publicação
+O repositório é o código-fonte do projeto. Para ter um endereço público, é necessário ativar e configurar o GitHub Pages ou outro serviço de alojamento estático. A publicação online ainda não é confirmada por este commit.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+## Projeto original
+SM Consultoria | Business Consulting — contabilidade, fiscalidade, organização documental e consultoria empresarial em Angola.
