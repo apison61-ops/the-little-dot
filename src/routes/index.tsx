@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, CheckCircle2, ChevronDown, FileText, Calculator, BriefcaseBusiness, ChartNoAxesCombined, Menu, X, MessageCircle, Play, Camera, ShieldCheck, Clock3, MapPin, Mail } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ChevronDown, FileText, Calculator, BriefcaseBusiness, ChartNoAxesCombined, Menu, X, MessageCircle, Camera, ShieldCheck, Clock3, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/")({ component: Home });
 
