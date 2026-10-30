@@ -23,3 +23,20 @@ Este commit atualiza o código no GitHub, mas não configura automaticamente um 
 
 ## Identidade visual
 Azul institucional `#003780`, branco `#FFFFFF` e verde `#25A56A` apenas em pequenos detalhes.
+
+
+## Publicação automática (GitHub Pages)
+
+Foi adicionado o workflow `.github/workflows/deploy-sm-consultoria.yml`. Para publicar o site pela primeira vez:
+
+1. Abra **Settings** do repositório.
+2. Entre em **Pages**.
+3. Em **Build and deployment**, selecione **GitHub Actions** como fonte.
+4. Abra **Actions** e confirme que o workflow **Publish SM Consultoria website** terminou com sucesso.
+5. Depois da primeira publicação, o endereço aparecerá no ambiente **github-pages** do workflow.
+
+O workflow publica o conteúdo de `teste-1/` como raiz do site.
+
+## Identidade visual e conteúdo real
+
+O logótipo vetorial em `assets/sm-logo.svg` é uma versão gráfica simples criada para evitar que a marca fique sem imagem no cabeçalho. Substitua-o pelo ficheiro oficial da SM Consultoria quando disponível. As fotografias atuais da galeria são imagens ilustrativas e estão identificadas como tal; os cartões de vídeo estão preparados para receber links reais de incorporação. Não foram inventados vídeos ou fotografias da empresa.
